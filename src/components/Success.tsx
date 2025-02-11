@@ -1,5 +1,5 @@
 const Success:React.FC=()=>{
-    const accept = "src/assets/cHbD-togepi-and-pikachu.gif";
+    const accept = "public/assets/cHbD-togepi-and-pikachu.gif";
 return(
     <>
     <div className="min-h-screen bg-gradient-to-b from-white to-red-200">

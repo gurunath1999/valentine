@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 
 const LoveProposal: React.FC = () => {
   const navigate = useNavigate();
-  const lovePropose = "src/assets/UF8j-togepi-love.gif";
+  const lovePropose = "public/assets/UF8j-togepi-love.gif";
   const dontAccept: string[] = [
-    "src/assets/x-VI-togepi-sad-1.gif",
-    "src/assets/6Iw--togepi-sad-2.gif",
-    "src/assets/aWFc-togepi-crying.gif",
+    "public/assets/x-VI-togepi-sad-1.gif",
+    "public/assets/6Iw--togepi-sad-2.gif",
+    "public/assets/aWFc-togepi-crying.gif",
   ];
 
   const buttonMessages = [
