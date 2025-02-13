@@ -32,7 +32,7 @@ const LoveProposal: React.FC = () => {
     // Increase YES button size and decrease NO button size
     if (count < 8) {
       setYesSize(yesSize + 0.05);
-      setNoSize(noSize - 0.02); // Reduce size but avoid too small values
+      setNoSize(Math.max(0.6, noSize - 0.05)); // Prevents shrinking too much
     }
 
     if (count > 8) {
@@ -45,26 +45,20 @@ const LoveProposal: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-red-200 flex justify-center items-center">
-      <div className="text-center">
+    <div className="min-h-screen bg-gradient-to-b from-white to-red-200 flex flex-col justify-center items-center p-4">
+      <div className="text-center w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
         {/* Image */}
-        <div className="w-full max-w-[500px] h-auto">
-
-          <img
-            src={imgURL}
-            alt="Togepi Reaction"
-            className="w-full h-auto object-cover mx-auto"
-
-          />
+        <div className="w-full h-auto">
+          <img src={imgURL} alt="Togepi Reaction" className="w-full h-auto object-cover mx-auto rounded-lg" />
         </div>
 
         {/* Question */}
-        <div className="mt-6 text-2xl font-semibold text-[#130505]">
+        <div className="mt-6 text-xl sm:text-2xl font-semibold text-[#130505]">
           Will you be my Valentine? (˶ᵔ ᵕ ᵔ˶)❤️
         </div>
 
         {/* Buttons */}
-        <div className="mt-6 flex justify-center gap-10">
+        <div className="mt-6 flex flex-col sm:flex-row justify-center gap-6 sm:gap-10">
           {/* YES Button - Grows */}
           <button
             onClick={HandleYesButton}
@@ -86,8 +80,7 @@ const LoveProposal: React.FC = () => {
               transform: `scale(${noSize})`,
               width: `${100 * noSize}px`,
               height: `${50 * noSize}px`,
-              fontSize: `${Math.max(12, 16 * noSize)}px`, // Min font-size 12px
-
+              fontSize: `${Math.max(12, 16 * noSize)}px`, // Prevents text from being too small
             }}
           >
             {count === 0
